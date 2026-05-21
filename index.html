@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CM CBN at Art of Living · May 20, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #080808;
+    --near-black: #101010;
+    --dark: #181818;
+    --mid: #242424;
+    --grey-dark: #333;
+    --grey: #555;
+    --grey-light: #888;
+    --silver: #bbb;
+    --white: #ede9e3;
+    --off-white: #d8d4ce;
+    --purple: #6b3fa0;
+    --purple-dim: #2e1845;
+    --purple-mist: #130e1e;
+    --gold: #a89060;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--black);color:var(--white);font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.75;overflow-x:hidden;}
+
+  /* Grain */
+  body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    opacity:0.03;}
+
+  /* ── HERO ── */
+  .hero{
+    min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;
+    padding:80px 8vw 80px;position:relative;overflow:hidden;
+    background:radial-gradient(ellipse 70% 60% at 90% 40%, var(--purple-mist) 0%, transparent 65%),
+               linear-gradient(170deg,var(--black) 60%,var(--near-black) 100%);
+  }
+  .hero-orb{
+    position:absolute;right:-8vw;top:50%;transform:translateY(-50%);
+    width:52vw;height:52vw;border-radius:50%;
+    border:1px solid var(--purple-dim);opacity:0.25;
+    animation:breathe 7s ease-in-out infinite;pointer-events:none;
+  }
+  .hero-orb2{
+    position:absolute;right:8vw;top:50%;transform:translateY(-50%);
+    width:32vw;height:32vw;border-radius:50%;
+    border:1px solid var(--purple);opacity:0.08;
+    animation:breathe 7s ease-in-out infinite reverse;pointer-events:none;
+  }
+  @keyframes breathe{0%,100%{transform:translateY(-50%) scale(1);}50%{transform:translateY(-50%) scale(1.05);}}
+
+  .hero-tag{
+    font-family:'Space Mono',monospace;font-size:10px;letter-spacing:5px;
+    color:var(--purple);text-transform:uppercase;margin-bottom:24px;
+    opacity:0;animation:fadeUp .8s .1s ease forwards;
+  }
+  .hero-title{
+    font-family:'Playfair Display',serif;font-weight:900;
+    font-size:clamp(3.2rem,7.5vw,7rem);line-height:.94;
+    color:var(--white);max-width:15ch;margin-bottom:20px;
+    opacity:0;animation:fadeUp .9s .3s ease forwards;
+  }
+  .hero-title em{color:var(--silver);font-style:italic;font-weight:400;}
+  .hero-sub{
+    font-size:clamp(1rem,1.8vw,1.4rem);font-weight:300;
+    color:var(--grey-light);max-width:50ch;margin-bottom:48px;
+    opacity:0;animation:fadeUp .9s .5s ease forwards;
+  }
+  .hero-date{
+    font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;
+    color:var(--grey);text-transform:uppercase;
+    opacity:0;animation:fadeUp .9s .7s ease forwards;
+  }
+  @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+
+  /* ── SECTIONS ── */
+  .rule{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--grey-dark),transparent);}
+
+  .section{padding:80px 8vw;}
+  .section-alt{background:var(--near-black);}
+  .section-purple{background:var(--purple-mist);border-top:1px solid var(--purple-dim);border-bottom:1px solid var(--purple-dim);}
+
+  .sec-head{display:flex;align-items:center;gap:18px;margin-bottom:52px;}
+  .sec-head .num{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--purple);}
+  .sec-head h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:700;color:var(--white);}
+  .sec-head::after{content:'';flex:1;height:1px;background:var(--grey-dark);margin-left:12px;}
+
+  /* ── INTRO 2-COL ── */
+  .intro-grid{display:grid;grid-template-columns:1fr 2fr;gap:60px;align-items:start;}
+  .intro-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:4px;color:var(--purple);text-transform:uppercase;padding-top:6px;}
+  .intro-body{font-size:clamp(1.05rem,1.7vw,1.3rem);font-weight:300;color:var(--off-white);line-height:1.85;}
+
+  /* ── QUOTE CARDS ── */
+  .qcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:2px;}
+  .qcard{background:var(--dark);padding:40px 36px;position:relative;overflow:hidden;transition:background .3s;}
+  .qcard:hover{background:var(--mid);}
+  .qcard::before{content:'';position:absolute;top:0;left:0;width:2px;height:0;background:var(--purple);transition:height .4s;}
+  .qcard:hover::before{height:100%;}
+  .qcard-quote{font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:var(--off-white);margin-bottom:20px;line-height:1.6;}
+  .qcard-attr{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--purple);text-transform:uppercase;}
+
+  /* ── PULL QUOTE ── */
+  .pq{text-align:center;padding:90px 8vw;position:relative;}
+  .pq blockquote{
+    font-family:'Playfair Display',serif;font-style:italic;font-weight:400;
+    font-size:clamp(1.6rem,3.2vw,2.8rem);color:var(--white);
+    max-width:22ch;margin:0 auto;line-height:1.35;position:relative;
+  }
+  .pq blockquote::before{
+    content:'\201C';font-size:9rem;color:var(--purple-dim);
+    position:absolute;top:-45px;left:-16px;
+    font-family:'Playfair Display',serif;line-height:1;pointer-events:none;
+  }
+  .pq cite{display:block;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--purple);margin-top:28px;font-style:normal;text-transform:uppercase;}
+
+  /* ── KEY MOMENTS (timeline) ── */
+  .timeline{position:relative;padding-left:44px;max-width:680px;}
+  .timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--purple),var(--grey-dark),transparent);}
+  .tl-item{position:relative;margin-bottom:44px;}
+  .tl-item::before{content:'';position:absolute;left:-48px;top:10px;width:8px;height:8px;border-radius:50%;background:var(--purple);box-shadow:0 0 10px var(--purple);}
+  .tl-badge{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:var(--purple);text-transform:uppercase;margin-bottom:6px;}
+  .tl-item h4{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--white);margin-bottom:6px;}
+  .tl-item p{font-size:.93rem;color:var(--grey-light);line-height:1.65;}
+
+  /* ── LINKS ── */
+  .links-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px;}
+  .link-card{
+    background:var(--dark);padding:28px 32px;
+    display:flex;align-items:flex-start;gap:20px;
+    text-decoration:none;color:inherit;
+    border-left:2px solid var(--grey-dark);
+    transition:border-color .3s, background .3s;
+  }
+  .link-card:hover{background:var(--mid);border-color:var(--purple);}
+  .link-icon{font-size:22px;flex-shrink:0;margin-top:2px;filter:grayscale(0.5);}
+  .link-source{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--purple);text-transform:uppercase;margin-bottom:6px;}
+  .link-title{font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);line-height:1.4;margin-bottom:4px;}
+  .link-url{font-size:.8rem;color:var(--grey);word-break:break-all;}
+
+  /* ── FOOTER ── */
+  footer{padding:48px 8vw;background:var(--black);border-top:1px solid var(--grey-dark);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+  footer .ft-brand{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--white);}
+  footer .ft-note{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--grey);text-transform:uppercase;}
+
+  @media(max-width:700px){
+    .intro-grid{grid-template-columns:1fr;}
+    .hero-title{font-size:clamp(2.5rem,12vw,4rem);}
+    .hero{padding:60px 6vw;}
+    .section{padding:60px 6vw;}
+  }
+
+  /* ── VM BADGE ── */
+  .vm-badge{
+    position:fixed;
+    bottom:24px;
+    left:16px;
+    z-index:10000;
+    text-decoration:none;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap:14px;
+    background:rgba(8,8,8,0.75);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border:1px solid #2a2a2a;
+    border-radius:4px;
+    padding:12px 18px 12px 14px;
+    opacity:0.6;
+    transition:opacity .4s ease, transform .4s ease, border-color .4s, box-shadow .4s;
+  }
+  .vm-badge:hover{
+    opacity:1;
+    transform:translateY(-4px);
+    border-color:#7c3aed;
+    box-shadow:0 0 20px rgba(124,58,237,0.25), 0 0 40px rgba(124,58,237,0.1);
+  }
+  .vm-mark{flex-shrink:0;}
+  .vm-mark svg{display:block;overflow:visible;}
+  .vm-mark path{
+    stroke:#888;
+    transition:stroke .4s, filter .4s;
+  }
+  .vm-badge:hover .vm-mark path{
+    stroke:#ddd0ff;
+    filter:
+      drop-shadow(0 0 4px #c084fc)
+      drop-shadow(0 0 10px #a855f7)
+      drop-shadow(0 0 22px #7c3aed);
+  }
+  .vm-text{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+  }
+  .vm-name{
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#ccc;
+    white-space:nowrap;
+    transition:color .4s, text-shadow .4s;
+  }
+  .vm-sub{
+    font-family:'Space Mono',monospace;
+    font-size:8px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#555;
+    white-space:nowrap;
+    transition:color .4s;
+  }
+  .vm-badge:hover .vm-name{
+    color:#e0d0ff;
+    text-shadow:0 0 8px #a855f7, 0 0 18px #7c3aed;
+  }
+  .vm-badge:hover .vm-sub{color:#9d6fe8;}
+
+  @media(max-width:390px){
+    .vm-badge{bottom:16px;left:10px;padding:10px 14px 10px 10px;gap:10px;}
+    .vm-name{font-size:10px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-orb"></div>
+  <div class="hero-orb2"></div>
+  <p class="hero-tag">· Art of Living · 45th Anniversary · Bengaluru · May 20, 2026 ·</p>
+  <h1 class="hero-title">CM <em>Chandra&shy;babu</em> Naidu at Art of Living</h1>
+  <p class="hero-sub">Andhra Pradesh Chief Minister N. Chandrababu Naidu attended the 45th Anniversary Satsang of the Art of Living Foundation at its International Centre, Bengaluru — receiving the blessings of Gurudev Sri Sri Ravi Shankar.</p>
+  <p class="hero-date">Tuesday · 20 May 2026 · Art of Living International Centre, Kanakapura Road</p>
+</section>
+<div class="rule"></div>
+
+<!-- ── INTRO ── -->
+<section class="section section-alt">
+  <div class="intro-grid">
+    <div class="intro-label">Context</div>
+    <div class="intro-body">
+      <p>Andhra Pradesh Chief Minister N. Chandrababu Naidu participated in the global celebrations marking the 70th birthday of Sri Sri Ravi Shankar and the 45th anniversary of the Art of Living Foundation at its International Centre on Kanakapura Road, Bengaluru. He attended the Satsang, received the blessings of Gurudev, and addressed a gathering of national leaders, industrialists, and spiritual seekers from across 182 countries.</p>
+    </div>
+  </div>
+</section>
+<div class="rule"></div>
+
+<!-- ── WHAT HE SAID ── -->
+<section class="section">
+  <div class="sec-head"><span class="num">01</span><h2>What CM Naidu Said</h2></div>
+  <div class="qcards">
+    <div class="qcard">
+      <p class="qcard-quote">"Gurudev is a messenger of harmony, and a bridge between the wisdom of ancient Bharat and the aspirations of the modern world."</p>
+      <p class="qcard-attr">— CM N. Chandrababu Naidu · Republic World, May 20 2026</p>
+    </div>
+    <div class="qcard">
+      <p class="qcard-quote">"Technology can improve human life, but only spirituality can improve the human being."</p>
+      <p class="qcard-attr">— CM N. Chandrababu Naidu · Republic World, May 20 2026</p>
+    </div>
+    <div class="qcard">
+      <p class="qcard-quote">"The world has more information than ever before, but less peace. More connectivity, but less human connection."</p>
+      <p class="qcard-attr">— CM N. Chandrababu Naidu · Deccan Chronicle, May 20 2026</p>
+    </div>
+    <div class="qcard">
+      <p class="qcard-quote">"Guruji is involved in building a healthy society and nation in today's war-torn society. He is not just a spiritual leader, but a global leader of the modern era."</p>
+      <p class="qcard-attr">— CM N. Chandrababu Naidu · ETV Bharat, May 20 2026</p>
+    </div>
+    <div class="qcard">
+      <p class="qcard-quote">"Three decades ago, we conducted Art of Living programs for ministers, MLAs, MPs and senior bureaucrats — and it delivered tremendous results."</p>
+      <p class="qcard-attr">— CM N. Chandrababu Naidu · Republic World, May 20 2026</p>
+    </div>
+    <div class="qcard">
+      <p class="qcard-quote">"Building an integrated society with spiritual knowledge should be our goal — alongside quantum computers, drones, AI and data parks."</p>
+      <p class="qcard-attr">— CM N. Chandrababu Naidu · ETV Bharat, May 20 2026</p>
+    </div>
+  </div>
+</section>
+<div class="rule"></div>
+
+<!-- ── PULL QUOTE ── -->
+<section class="section section-purple pq">
+  <blockquote>Technology can improve human life, but only spirituality can improve the human being.</blockquote>
+  <cite>— CM N. Chandrababu Naidu · Art of Living 45th Anniversary Satsang · May 20, 2026</cite>
+</section>
+<div class="rule"></div>
+
+<!-- ── SRI SRI ON CBN ── -->
+<section class="section section-alt">
+  <div class="sec-head"><span class="num">02</span><h2>Gurudev on CM Naidu</h2></div>
+  <div class="intro-grid">
+    <div class="intro-label">Sri Sri's Words</div>
+    <div class="intro-body">
+      <p>At the Satsang, Gurudev Sri Sri Ravi Shankar praised CM Chandrababu Naidu for his pivotal contribution to the growth of the Information Technology sector in India — describing Naidu as the one who <em>"wrote the preface to the progress of the IT sector in India."</em></p>
+      <p style="margin-top:16px;font-size:.95rem;color:var(--grey-light);">Source: ETV Bharat · ETV Andhra Pradesh</p>
+    </div>
+  </div>
+</section>
+<div class="rule"></div>
+
+<!-- ── KEY MOMENTS ── -->
+<section class="section">
+  <div class="sec-head"><span class="num">03</span><h2>Key Moments</h2></div>
+  <div class="timeline">
+    <div class="tl-item">
+      <p class="tl-badge">Arrival · May 20, 2026</p>
+      <h4>CM Naidu Attends 45th Anniversary Satsang</h4>
+      <p>Chief Minister N. Chandrababu Naidu joined the Satsang at the Art of Living International Centre on Kanakapura Road, Bengaluru, as part of the month-long 45th anniversary celebrations (May 10–26, 2026).</p>
+    </div>
+    <div class="tl-item">
+      <p class="tl-badge">Blessing</p>
+      <h4>Receives Gurudev's Blessings</h4>
+      <p>Naidu participated in the Satsang and received the blessings of Sri Sri Ravi Shankar, who is fondly known as Guruji — honouring a relationship spanning nearly three decades.</p>
+    </div>
+    <div class="tl-item">
+      <p class="tl-badge">Address to Gathering</p>
+      <h4>Spirituality &amp; Technology — A New Vision</h4>
+      <p>Addressing national leaders and international delegates, CM Naidu argued that economic growth, infrastructure, and technological advancement alone cannot ensure sustainable development unless complemented by human values and inner peace.</p>
+    </div>
+    <div class="tl-item">
+      <p class="tl-badge">Andhra Pradesh Vision</p>
+      <h4>AP as a Destination for Peace &amp; Wellness</h4>
+      <p>CM Naidu declared Andhra Pradesh's aim to emerge not only as an IT hub but also as a destination for peace, wellness, spirituality and happiness — highlighting Tirupati and spiritual tourism as pillars of this vision.</p>
+    </div>
+    <div class="tl-item">
+      <p class="tl-badge">3 Decades of Association</p>
+      <h4>Long Bond with Art of Living</h4>
+      <p>CM Naidu recalled how nearly three decades ago, Art of Living programs were conducted for ministers, MLAs, MPs, and senior bureaucrats in Andhra Pradesh — with transformative results.</p>
+    </div>
+  </div>
+</section>
+<div class="rule"></div>
+
+<!-- ── SOURCES & LINKS ── -->
+<section class="section section-alt">
+  <div class="sec-head"><span class="num">04</span><h2>Coverage &amp; Sources</h2></div>
+  <div class="links-grid">
+    <a class="link-card" href="https://www.etvbharat.com/en/bharat/andhra-pradesh-cm-chandrababu-naidu-at-art-of-living-satsang-enn26052007294" target="_blank" rel="noopener">
+      <span class="link-icon">📺</span>
+      <div>
+        <p class="link-source">ETV Bharat</p>
+        <p class="link-title">CM Chandrababu Naidu at Art of Living Satsang — Amaravati Will Emerge As City of the Future</p>
+        <p class="link-url">etvbharat.com · May 20, 2026</p>
+      </div>
+    </a>
+    <a class="link-card" href="https://www.republicworld.com/initiatives/national-leaders-chief-ministers-and-industry-icons-gather-at-the-art-of-living-ashram-to-celebrate-45-years-of-humanitarian-service-2026-05-20-125088" target="_blank" rel="noopener">
+      <span class="link-icon">📰</span>
+      <div>
+        <p class="link-source">Republic World</p>
+        <p class="link-title">National Leaders, Chief Ministers and Industry Icons Gather at Art of Living Ashram</p>
+        <p class="link-url">republicworld.com · May 20, 2026</p>
+      </div>
+    </a>
+    <a class="link-card" href="https://www.deccanchronicle.com/southern-states/andhra-pradesh/spirituality-key-to-holistic-progress-says-ap-cm-1958089" target="_blank" rel="noopener">
+      <span class="link-icon">📄</span>
+      <div>
+        <p class="link-source">Deccan Chronicle</p>
+        <p class="link-title">Spirituality Key to Holistic Progress, Says AP CM — CM Naidu at Art of Living Bengaluru</p>
+        <p class="link-url">deccanchronicle.com · May 20, 2026</p>
+      </div>
+    </a>
+    <a class="link-card" href="https://www.youtube.com/results?search_query=CM+Chandrababu+Art+of+Living+Bengaluru+2026" target="_blank" rel="noopener">
+      <span class="link-icon">▶️</span>
+      <div>
+        <p class="link-source">YouTube · ETV Andhra Pradesh</p>
+        <p class="link-title">CM Chandrababu Praises Art of Living at Bengaluru Event</p>
+        <p class="link-url">Search: "CM Chandrababu Art of Living Bengaluru 2026" · ETV Andhra Pradesh · Tone News</p>
+      </div>
+    </a>
+    <a class="link-card" href="https://www.artofliving.org/in-en/aol-chief-help-bui" target="_blank" rel="noopener">
+      <span class="link-icon">🌿</span>
+      <div>
+        <p class="link-source">Art of Living</p>
+        <p class="link-title">Art of Living chief to help CM build a 'happy State' — long-standing collaboration</p>
+        <p class="link-url">artofliving.org</p>
+      </div>
+    </a>
+  </div>
+</section>
+<div class="rule"></div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <span class="ft-brand">CM CBN · Art of Living · May 2026</span>
+  <span class="ft-note">Page: CMCBNatAOL · All quotes verified from published sources</span>
+</footer>
+
+<!-- ── VM BADGE ── -->
+<a class="vm-badge" href="https://www.vishalmerani.com" target="_blank" rel="noopener" title="Go to vishalmerani.com">
+  <div class="vm-mark">
+    <svg width="64" height="32" viewBox="0 0 42 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 2 L9 17 L17 2 L25 17 L33 2 L41 17" stroke="#888" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div class="vm-text">
+    <span class="vm-name">Vishal Merani</span>
+    <span class="vm-sub">vishalmerani.com</span>
+  </div>
+</a>
+
+</body>
+</html>
